@@ -1,0 +1,14 @@
+{
+  "name": "土豆的十九岁 · 杨宇的生日小岛",
+  "short_name": "土豆的小岛",
+  "start_url": "./?entry=home",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f6f3eb",
+  "theme_color": "#f6f3eb",
+  "lang": "zh-CN",
+  "icons": [
+    { "src": "favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}

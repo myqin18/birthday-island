@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 620" fill="none">
+<defs><pattern id="water" width="100" height="70" patternUnits="userSpaceOnUse"><path d="M9 36q12 6 25 0m19-20q8 4 17 0" stroke="#b3c9c5" stroke-width="1.4" opacity=".6"/></pattern><pattern id="dots" width="17" height="17" patternUnits="userSpaceOnUse"><circle cx="3" cy="6" r=".8" fill="#98a081" opacity=".25"/></pattern></defs>
+<rect width="600" height="620" rx="30" fill="#e5eeea"/><rect width="600" height="620" rx="30" fill="url(#water)"/>
+<path d="M96 119C155 36 333 57 380 100s121 42 139 126-39 85-6 159-37 159-142 159-141 50-220 1-80-113-57-173S13 237 96 119Z" fill="#c9dcd2"/>
+<path d="M108 113c66-68 215-38 267 7s122 45 122 113-54 105-26 151-28 123-104 127-153 47-208 15-78-101-45-156S39 230 108 113Z" fill="#f0e4c8" stroke="#f7edda" stroke-width="7"/>
+<path d="M131 128c64-55 188-32 235 18s103 43 106 94-56 99-27 145-36 98-91 104-137 33-178 9-53-77-27-135S65 215 131 128Z" fill="#d5ddc0"/>
+<path d="M131 128c64-55 188-32 235 18s103 43 106 94-56 99-27 145-36 98-91 104-137 33-178 9-53-77-27-135S65 215 131 128Z" fill="url(#dots)"/>
+<!-- Walking trail -->
+<path d="M152 155C207 130 260 177 390 211S342 311 186 325s35 98 205 91-18 80-115 108" stroke="#f8f0df" stroke-width="19" stroke-linecap="round"/>
+<path d="M152 155C207 130 260 177 390 211S342 311 186 325s35 98 205 91-18 80-115 108" stroke="#bda779" stroke-width="2" stroke-dasharray="2 9" stroke-linecap="round"/>
+<!-- Pond, bridge, hills -->
+<path d="M260 234c31-18 67-5 72 17s-26 43-56 34-38-34-16-51Z" fill="#afc9bf"/><path d="M266 257q23-9 46-2" stroke="#e4efdc" stroke-width="2"/>
+<path d="m269 296 7 31m4-34 7 31m4-34 7 31m-33-21 36-9m-33 21 36-9" stroke="#af916a" stroke-width="3"/>
+<path d="m311 154 30-41 38 44" fill="#a6b793"/><path d="m289 155 30-36 29 37" fill="#bcc8a8"/>
+<!-- Botanical marks -->
+<g fill="#8b9f7e" stroke="#6f8566" stroke-width="2"><path d="m129 265-17-28h11l-13-25h12l-11-26-15 26h11l-15 25h12l-20 28Z"/><path d="m411 347-19-29h12l-14-26h11l-13-27-15 27h12l-16 26h11l-19 29Z"/><path d="m192 450-17-27h10l-12-23h9l-13-23-13 23h9l-13 23h10l-17 27Z"/></g><g stroke="#887959" stroke-width="4"><path d="M108 265v12m281 70v13M169 450v14"/></g>
+<g fill="#eee7c2"><circle cx="239" cy="189" r="5"/><circle cx="222" cy="196" r="4"/><circle cx="230" cy="209" r="4"/><circle cx="341" cy="375" r="5"/><circle cx="327" cy="387" r="4"/></g>
+<g fill="#aaad85"><ellipse cx="156" cy="404" rx="10" ry="4"/><ellipse cx="455" cy="251" rx="12" ry="5"/><ellipse cx="224" cy="472" rx="9" ry="5"/></g>
+<!-- Beach parasol -->
+<path d="M470 434v40" stroke="#998266" stroke-width="3"/><path d="M443 438q27-45 55 0Z" fill="#d1ac8a" stroke="#ac8d70" stroke-width="1.5"/><path d="M470 408q-11 13-10 30m10-30q13 15 13 30" stroke="#f7e8cd" stroke-width="5"/>
+<!-- Dock and sailboat -->
+<path d="m127 498-38 31m30-36-38 31" stroke="#af9476" stroke-width="3"/><path d="m112 501 9 11m-16-5 9 11m-16-5 9 11m-16-5 9 11" stroke="#c2a786" stroke-width="4"/>
+<path d="M57 460h39l-9 10H65Z" fill="#ad8f70"/><path d="M78 423v35H57Z" fill="#fff8e6"/><path d="M81 431v26h14Z" fill="#cba994"/>
+<!-- Compass and labels -->
+<g transform="translate(535 75)" stroke="#9b9f8b"><circle r="22"/><path d="M0-29V29M-29 0h58"/><path d="m0-19-5 19 5-4 5 4Z" fill="#899783"/></g><text x="531" y="35" font-size="11" fill="#798674" font-family="Georgia,serif">N</text>
+<text x="43" y="590" fill="#8c9e93" font-size="10" letter-spacing="3" font-family="Georgia,serif">POTATO ISLAND · CHAPTER XIX</text>
+</svg>

@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 600" fill="none">
+<defs><radialGradient id="glow"><stop stop-color="#f5e6c8"/><stop offset="1" stop-color="#f8f3e8" stop-opacity="0"/></radialGradient><linearGradient id="skin" x1="230" y1="200" x2="400" y2="460" gradientUnits="userSpaceOnUse"><stop stop-color="#e5c39a"/><stop offset="1" stop-color="#bb8e64"/></linearGradient><linearGradient id="cake" x1="460" y1="355" x2="460" y2="450" gradientUnits="userSpaceOnUse"><stop stop-color="#eee0c8"/><stop offset="1" stop-color="#d7c0a1"/></linearGradient><filter id="shadow"><feGaussianBlur stdDeviation="12"/></filter><pattern id="grain" width="7" height="7" patternUnits="userSpaceOnUse"><circle cx="1" cy="2" r=".45" fill="#785d3d" opacity=".13"/></pattern></defs>
+<ellipse cx="350" cy="299" rx="320" ry="290" fill="url(#glow)"/>
+<path d="M97 367C49 270 119 121 271 105c93-10 255 23 292 125s-12 237-146 255-269-13-320-118Z" fill="#e6e8d7"/>
+<path d="M95 370c51-24 91-11 143-28s119-23 172 8 108 5 164 12c-5 79-68 125-173 131-144 8-256-29-306-123Z" fill="#dae0c6"/>
+<path d="M103 409c75-26 140 35 218 15s118-48 227-30" stroke="#f6edda" stroke-width="24" stroke-linecap="round"/>
+<ellipse cx="353" cy="457" rx="191" ry="24" fill="#8b7954" opacity=".16" filter="url(#shadow)"/>
+<!-- Birthday potato, drawn as a small clay figure -->
+<path d="M236 450q-18 26 5 30c23 4 32-14 28-23m79-7q23 22 8 31c-22 9-35-9-36-24" fill="#a77f59"/>
+<path d="M216 293c-44 4-57 43-42 52 15 7 28-11 46-17m152-40c44-24 54-17 53-3-2 16-23 24-47 33" fill="#cea579" stroke="#b18b62" stroke-width="2"/>
+<path d="M261 206c29-38 86-30 109 8s11 69 28 111c23 63 0 116-49 133-39 15-100 11-127-27-25-34-30-80-18-125 13-47 30-68 57-100Z" fill="url(#skin)" stroke="#b18b62" stroke-width="2"/>
+<path d="M261 206c29-38 86-30 109 8s11 69 28 111c23 63 0 116-49 133-39 15-100 11-127-27-25-34-30-80-18-125 13-47 30-68 57-100Z" fill="url(#grain)"/>
+<path d="m249 318 12-6m75-4 11 4" stroke="#755e45" stroke-width="4" stroke-linecap="round"/><ellipse cx="267" cy="335" rx="4" ry="6" fill="#574738"/><ellipse cx="329" cy="335" rx="4" ry="6" fill="#574738"/><ellipse cx="248" cy="354" rx="13" ry="7" fill="#c78675" opacity=".55"/><ellipse cx="348" cy="354" rx="13" ry="7" fill="#c78675" opacity=".55"/><path d="M286 353q12 17 25-1" stroke="#73523f" stroke-width="3" stroke-linecap="round"/>
+<path d="m264 221 23-103 62 89c-18 19-54 24-85 14Z" fill="#78836a" stroke="#616e56" stroke-width="2"/><path d="m280 151 31 2m-39 24 60 5m-66 18 75 6" stroke="#d7d8b5" stroke-width="7"/><circle cx="287" cy="113" r="12" fill="#d5ac6b"/>
+<path d="M223 380q67 35 155-9l-4 32q-81 39-147 5Z" fill="#f4e5cb"/><text x="270" y="407" fill="#887455" font-size="15" letter-spacing="3" font-family="Georgia,serif">YANG YU</text>
+<!-- Cake and numbered candles -->
+<ellipse cx="480" cy="455" rx="89" ry="16" fill="#faf5e8" stroke="#d6c3a4" stroke-width="2"/>
+<path d="M410 360v74c0 25 140 25 140 0v-74" fill="url(#cake)" stroke="#c8af8c" stroke-width="2"/><path d="M410 403c35 14 105 14 130 0" stroke="#a5ae8e" stroke-width="9"/><ellipse cx="475" cy="360" rx="65" ry="22" fill="#fff7e7" stroke="#d8c7ad" stroke-width="2"/>
+<path d="M410 360v19q9 11 16-1 8 24 20 3 9 26 21 3 12 25 22 0 13 22 23-5 19 15 28-8v-11" fill="#fff7e7"/>
+<g stroke="#857958" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"><path d="m444 318 12-12v43"/><path d="M503 348V315c0-16-22-18-23-2-1 16 23 19 23 2"/></g>
+<path d="M454 279c-12 16-4 20 1 17s7-8-1-17m33 0c-12 16-4 20 1 17s7-8-1-17" fill="#d7a65e"/>
+<!-- A small gift and botanical details -->
+<rect x="119" y="402" width="60" height="48" rx="5" fill="#bdc5a9"/><path d="M115 400h68v12h-68" fill="#dce0c9"/><path d="M149 400v50m0-50c-45-23-16-36 0 0 40-30 27-39 0 0" stroke="#f8f0dd" stroke-width="6" stroke-linejoin="round"/>
+<g stroke="#839071" stroke-width="3" stroke-linecap="round"><path d="M577 429v-94m0 53q-29-4-26-25 25 4 26 25m0-26q25-11 25-27-23 5-25 27M105 330v-58m0 34q-18-1-19-18 15 4 19 18"/></g>
+<g fill="#c5a36b"><path d="m150 191 4 12 12 4-12 4-4 12-4-12-12-4 12-4Zm390 45 3 9 9 3-9 3-3 9-3-9-9-3 9-3Z"/><circle cx="409" cy="160" r="3"/><circle cx="196" cy="252" r="3"/></g>
+<path d="M528 195c-2-55 38-70 51-43 15 32-12 58-30 76" stroke="#baaa8c" stroke-width="2"/><ellipse cx="548" cy="151" rx="23" ry="30" transform="rotate(14 548 151)" fill="#cfaa9a"/>
+</svg>
