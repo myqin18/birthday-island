@@ -1,0 +1,53 @@
+/* Crystal Dreams — palette aligned with the island (cream / sage / warm gold) */
+.crystal-screen{padding:28px 0 56px;background:transparent}
+.crystal-experience{position:relative;width:100%;height:min(70svh,720px);min-height:520px;overflow:hidden;background:#221f28;border:1px solid #4a4338;border-radius:10px;isolation:isolate}
+.crystal-experience::before{content:'';position:absolute;inset:0;z-index:0;background:radial-gradient(circle at 50% 42%,#8a734f66 0,#3d3540dd 38%,#221f28 78%);pointer-events:none}
+.crystal-canvas{position:absolute;inset:0;z-index:1}
+.crystal-canvas canvas{display:block;width:100%;height:100%}
+.crystal-ui{position:absolute;z-index:3;color:#f2e8d6;text-shadow:0 1px 14px #2a221855}
+.crystal-topline{top:24px;left:26px;display:grid;gap:6px}
+.crystal-eyebrow{font:10px/1 Georgia,serif;letter-spacing:.28em;color:#c9b082}
+.crystal-topline strong{font:clamp(20px,3.6vw,40px)/1 Georgia,serif;letter-spacing:.13em;font-weight:400;color:#f7efdf}
+.crystal-subtitle{font-size:12px;color:#c2b49a}
+.crystal-loading{position:absolute;z-index:5;left:50%;top:50%;transform:translate(-50%,-50%);display:flex;align-items:center;gap:12px;color:#e8dcc4;font-size:13px;letter-spacing:.08em;transition:opacity .32s ease}
+.crystal-loading.is-done{opacity:0;pointer-events:none}
+.crystal-loader{width:18px;height:18px;border:1px solid #d4b06a;border-top-color:transparent;border-radius:50%;animation:crystal-spin 1s linear infinite}
+@keyframes crystal-spin{to{transform:rotate(360deg)}}
+.crystal-start{position:absolute;z-index:4;left:50%;top:62%;transform:translate(-50%,-50%);padding:14px 24px;border:1px solid #c9a468;border-radius:999px;background:#3a3228cc;color:#f7efdf;box-shadow:0 0 30px #a8874f44,inset 0 0 20px #d4b06a22;letter-spacing:.12em;cursor:pointer;transition:.25s;font-size:13px}
+.crystal-start:hover{background:#4a4032ee;box-shadow:0 0 48px #c9a46855;transform:translate(-50%,-50%) scale(1.04)}
+.crystal-countdown{position:absolute;z-index:3;left:50%;top:50%;transform:translate(-50%,-50%);color:#f7efdf;font:clamp(70px,15vw,180px)/1 Georgia,serif;text-shadow:0 0 25px #e8c27a,0 0 80px #b8935a88;pointer-events:none}
+.crystal-controls{right:24px;top:24px;display:flex;gap:7px;flex-wrap:wrap;justify-content:flex-end}
+.crystal-controls button,.crystal-upload{padding:8px 11px;border:1px solid #8a7b62;border-radius:999px;background:#2e2828b8;color:#ead9bc;font-size:11px;cursor:pointer;backdrop-filter:blur(10px)}
+.crystal-controls button[aria-pressed=true]{border-color:#d4b06a;background:#4a3d2ccc;color:#fff8ea}
+.crystal-upload input{display:none}
+.crystal-status{left:26px;bottom:25px;color:#d8c29a;font-size:12px;letter-spacing:.08em}
+.crystal-media-hint{right:26px;bottom:25px;color:#b3a68e;font-size:11px}
+.crystal-corner{right:26px;bottom:70px;text-align:right;font:12px/1.8 Georgia,serif;letter-spacing:.2em;color:#cbb389}
+.crystal-corner span{color:#fff6e6}
+.crystal-photo-dialog{width:min(92vw,900px);max-height:90svh;padding:22px;background:#2b2830f2;border:1px solid #c9a468;border-radius:20px;box-shadow:0 0 70px #6b533455;color:#f2e8d6}
+.crystal-photo-dialog::backdrop{background:#1c1918dd;backdrop-filter:blur(14px)}
+.crystal-photo-dialog img{display:block;width:100%;max-height:70svh;object-fit:contain;border-radius:10px;background:#1c1918}
+.crystal-photo-dialog .crystal-photo-meta{margin:14px 0 0;text-align:center}
+.crystal-photo-dialog .crystal-photo-title{display:block;font-size:15px;letter-spacing:.08em;color:#f7efdf}
+.crystal-photo-dialog .crystal-photo-note{display:block;margin-top:6px;font-size:12px;line-height:1.8;color:#c2b49a}
+.crystal-photo-dialog .crystal-photo-count{display:block;margin-top:6px;font:10px/1 Georgia,serif;letter-spacing:.22em;color:#a3927a}
+.crystal-photo-close{position:absolute;right:10px;top:8px;z-index:2;width:34px;height:34px;border:1px solid #c9a468;border-radius:50%;background:#2e2828;color:#f2e8d6;font-size:22px;cursor:pointer}
+.crystal-next{display:block;margin:24px auto 0}
+.hero-art[data-go=travel]{cursor:pointer}
+.hero-art[data-go=travel]:focus-visible{outline:2px solid #c9a468;outline-offset:6px}
+@media(max-width:700px){
+  .crystal-experience{height:min(62svh,560px);min-height:440px}
+  .crystal-topline{top:16px;left:16px}
+  .crystal-topline strong{font-size:22px}
+  .crystal-subtitle{font-size:10px;max-width:210px}
+  .crystal-controls{top:auto;right:12px;bottom:52px;left:12px;justify-content:flex-start}
+  .crystal-status{left:16px;bottom:14px;font-size:10px}
+  .crystal-media-hint{right:16px;bottom:14px;font-size:9px}
+  .crystal-corner{right:16px;bottom:92px;font-size:10px}
+  .crystal-start{top:58%}
+}
+@media(prefers-reduced-motion:reduce){
+  .crystal-loader{animation:none}
+  .crystal-start{transition:none}
+  .crystal-loading{transition:none}
+}

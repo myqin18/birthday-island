@@ -9,15 +9,15 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="favicon.svg">
 <link rel="manifest" href="site.webmanifest">
-<link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="gifts.css">
+<link rel="stylesheet" href="styles.css?v=cake3"><link rel="stylesheet" href="gifts.css"><link rel="stylesheet" href="media.css?v=album3"><link rel="stylesheet" href="crystal.css?v=island3">
 </head>
 <body>
 <main class="app-shell">
-<header class="topbar"><a class="brand" href="#home" data-go="home"><span class="brand-mark">✳</span><span>土豆的小岛<small>THE BIRTHDAY EDITION</small></span></a><div class="header-right"><span class="edition">VOL. 019</span><button class="icon-button" id="soundToggle" aria-label="查看背景音乐状态">♫</button></div></header>
+<header class="topbar"><a class="brand" href="#home" data-go="home"><span class="brand-mark">✳</span><span>土豆的小岛<small>THE BIRTHDAY EDITION</small></span></a><div class="header-right"><button id="soundToggle" class="sound-toggle" type="button" aria-pressed="false" aria-label="音效开关">♪</button><span class="edition">VOL. 019</span></div></header>
 <section class="screen active" data-screen="home">
   <div class="home-hero">
-    <div class="hero-text"><p class="birthday-kicker"><span></span> A LITTLE WORLD, JUST FOR YOU</p><h1>十九岁，<br>土豆<span class="title-serif">自由生长。</span></h1><p class="hero-copy">给杨宇的一座生日小岛。<br>今天宜嘻嘻哈哈，宜收礼物，<br>不喜欢的事，允许一键跳过。</p><div class="hero-actions"><button class="primary-button" data-go="map">去岛上逛逛 <span>↗</span></button><a class="quiet-link" href="#welcome-quiz">先拆登岛礼物 <span>↓</span></a></div><div class="hero-meta"><span>YANG YU</span><span>土象灵感 · 快乐优先</span><span>19 & FREE</span></div></div>
-    <figure class="hero-art"><span class="art-corner">A BIRTHDAY PORTRAIT</span><img src="potato-birthday.svg" width="700" height="600" alt="戴生日帽的土豆，和十九岁蜡烛蛋糕一起站在小岛上"><figcaption><span>不必突然长大，<br>先快乐地过个生日。</span><b>19<sup>th</sup></b></figcaption><div class="art-seal">专 属 岛 民<br><strong>杨宇</strong><br>ONLY ONE</div></figure>
+    <div class="hero-text"><p class="birthday-kicker"><span></span> A LITTLE WORLD, JUST FOR YOU</p><h1>十九岁，<br>土豆<span class="title-serif">自由生长。</span></h1><p class="hero-copy">给杨宇的一座生日小岛。<br>今天宜嘻嘻哈哈，宜收礼物，<br>不喜欢的事，允许一键跳过。</p><div class="hero-actions"><button class="primary-button" id="startJourney">开始生日旅行 <span>→</span></button><a class="quiet-link" href="#map" data-go="map">先看看小岛地图 <span>↗</span></a></div><div class="hero-meta"><span>YANG YU</span><span>土象灵感 · 快乐优先</span><span>19 & FREE</span></div><div class="countdown-strip" id="countdownStrip" data-target="2026-10-30T00:00:00"><span class="countdown-label">距离生日</span><strong id="countdownDays">--</strong><span class="countdown-unit">天</span><span class="countdown-clock" id="countdownClock">--:--</span><span class="countdown-date">10 月 30 日 · 农历九月</span></div></div>
+    <figure class="hero-art" data-go="travel" tabindex="0" role="button" aria-label="点击开启水晶梦境"><span class="art-corner">A BIRTHDAY PORTRAIT</span><img src="potato-birthday.svg" width="700" height="600" alt="戴生日帽的土豆，和十九岁蜡烛蛋糕一起站在小岛上"><figcaption><span>不必突然长大，<br>先快乐地过个生日。</span><b>19<sup>th</sup></b></figcaption><div class="art-seal">专 属 岛 民<br><strong>杨宇</strong><br>ONLY ONE</div></figure>
   </div>
   <div class="island-rules"><span class="rule-label">本岛营业守则</span><p><b>01</b> 快乐随意领取</p><p><b>02</b> 没兴趣可以跳过</p><p><b>03</b> 彩蛋记得当面兑换</p></div>
   <div class="section-divider" id="welcome-quiz"><span>01 / THE ARRIVAL</span><p>登岛第一件事，<em>先接住一点惊喜。</em></p></div>
@@ -32,32 +32,64 @@
     <button class="map-pin pin-training locked" data-node="training"><i>03</i><b>土豆训练营</b><small>待发现</small></button>
     <button class="map-pin pin-video locked" data-node="video"><i>04</i><b>落日放映室</b><small>待发现</small></button>
     <button class="map-pin pin-final locked" data-node="final"><i>05</i><b>礼物小屋</b><small>待发现</small></button>
-  </div><aside class="atlas-aside"><span class="atlas-number">05</span><h3>五个地点，<br>一趟只为你准备的旅行。</h3><div class="progress-pill"><span>已经走过的小地方</span><strong id="progressText">1 / 5</strong><div class="progress-track"><i id="progressBar"></i></div></div><div class="map-note"><span>给土豆的通行特权</span><b>不赶路，不考试。想先去哪里，就去哪里。</b></div></aside></div>
+  </div><aside class="atlas-aside"><span class="atlas-number">05</span><h3>五个地点，<br>一趟只为你准备的旅行。</h3><div class="progress-pill"><span>已经走过的小地方</span><strong id="progressText">1 / 5</strong><div class="progress-track"><i id="progressBar"></i></div></div><p class="device-note">脚印和已领彩蛋记在这台设备的浏览器里。换设备时，可以重新逛。</p><div class="map-note"><span>给土豆的通行特权</span><b>想先去哪里都可以，每站的彩蛋等你答完再拆。</b></div></aside></div>
 </section>
-<section class="screen" data-screen="travel">
-  <div class="section-heading"><p class="mini-kicker">02 / THE MEMORY GARDEN</p><h2>把好日子，<em>种在这里。</em></h2><p>有一起出门的风，也有合照里的笑。照片来了以后，就让回忆在这里生长。</p></div>
-  <div class="garden"><button class="flower-button flower-button-1"><span class="photo-placeholder">✳</span><span>01 / 出发日</span></button><button class="flower-button flower-button-2"><span class="photo-placeholder">☼</span><span>02 / 好天气</span></button><button class="flower-button flower-button-3"><span class="photo-placeholder">⌁</span><span>03 / 小小绕路</span></button></div>
-  <div class="photo-note"><span class="note-pin">“</span><div><b>土豆的快乐存档</b><p>先替照片留好位置。点开一张小卡，看看今天的脑洞。</p></div></div>
-  <button class="primary-button task-button" data-unlock="training">去下一站</button>
+<section class="screen crystal-screen" data-screen="travel">
+  <div class="crystal-experience" id="crystalExperience">
+    <div id="crystalCanvas" class="crystal-canvas" aria-label="2026 Crystal Dreams 3D水晶生日场景"></div>
+    <div class="crystal-ui crystal-topline"><span class="crystal-eyebrow">2026 / DIAMOND EDITION</span><strong>CRYSTAL DREAMS</strong><span class="crystal-subtitle">杨宇的十九岁 · 一座会呼吸的回忆水晶岛</span></div>
+    <div id="crystalLoading" class="crystal-loading"><span class="crystal-loader"></span><span>正在折射小岛的光…</span></div>
+    <button id="crystalStart" class="crystal-start">开启水晶梦境 <span>✦</span></button>
+    <div id="crystalCountdown" class="crystal-countdown" aria-live="polite"></div>
+    <div class="crystal-ui crystal-controls" aria-label="水晶梦境控制">
+      <button id="crystalModeTree" type="button" aria-pressed="true">聚合</button><button id="crystalModeScatter" type="button" aria-pressed="false">散开</button><button id="crystalFullscreen" type="button">全屏</button><button id="crystalCamera" type="button">手势</button><label class="crystal-upload">加入照片<input id="crystalUpload" type="file" accept="image/*,video/*"></label>
+    </div>
+    <div id="crystalStatus" class="crystal-ui crystal-status">系统就绪 · 点击开启礼物</div>
+    <div id="crystalMediaHint" class="crystal-ui crystal-media-hint">拖动旋转 · 滚轮缩放 · 点击一颗记忆水晶</div>
+    <div class="crystal-ui crystal-corner">YANG YU<br><span>19 & FREE</span></div>
+  </div>
+  <div class="cake-moment">
+    <div class="cake-frame">
+      <video id="cakeVideo" playsinline preload="none" poster="media/celebrate/cake-birthday.jpg?v=cream2" src="media/celebrate/cake-birthday.mp4?v=cream2" aria-label="生日蛋糕动画"></video>
+      <button id="cakePlay" class="cake-play" type="button"><span>点上十九岁的蜡烛</span><b aria-hidden="true">▶</b></button>
+    </div>
+    <p class="cake-note" id="cakeNote">十秒钟，带声音。想好了再点。</p>
+  </div>
+  <button class="primary-button task-button crystal-next" data-unlock="training">从梦境回到下一站 →</button>
 </section>
 <section class="screen" data-screen="training">
-  <div class="section-heading"><p class="mini-kicker">03 / POTATO FIELD CAMP</p><h2>土豆训练营，<em>今天放假。</em></h2><p>军训回忆慢慢看。今天的唯一训练任务，是心安理得地收下祝福。</p></div>
+  <div class="section-heading"><p class="mini-kicker">03 / POTATO FIELD CAMP</p><h2>土豆训练营，<em>今天放假。</em></h2><p>今天不集合，也不考核。先歇一会儿，再去看小电影。</p></div>
   <div class="badge-card"><div class="badge-star">✳</div><div><b>YANG YU · HONORARY MEMBER</b><strong>快乐保持训练<br>已获得终身免考资格</strong></div><span>十九岁<br>特批</span></div>
   <button class="primary-button task-button" data-unlock="video">去下一站</button>
 </section>
 <section class="screen" data-screen="video">
-  <div class="section-heading"><p class="mini-kicker">04 / THE SUNSET CINEMA</p><h2>一些片段，<em>值得再看一遍。</em></h2><p>这里留给你们出去玩的视频，还有一段专门录给土豆的声音。</p></div>
-  <div class="beach-video"><div class="film-top"><span>PRIVATE SCREENING</span><span>FOR YANG YU</span></div><div class="cinema-sun"></div><div class="cinema-hill"></div><button class="play-button" id="playMock" aria-label="查看视频素材状态">▷</button><span id="playText">影片待送达 · 好位置已经留给你</span></div>
-  <div class="voice-card"><button class="audio-button" id="audioMock" aria-label="查看语音素材状态">♫</button><div><b>一封会说话的小信</b><small>录音待放入，先把耳朵的位置留好。</small></div><span>VOICE NOTE</span></div>
+  <div class="section-heading"><p class="mini-kicker">04 / 放映室</p><h2>那天的片段，<em>再看一遍。</em></h2><p>选一段，坐下来慢慢看。</p></div>
+  <div class="memory-stats cinema-stats"><span><strong id="videoTotal">0</strong> 段视频</span><span>点击后播放 · 原声保留</span></div>
+  <div id="videoLibrary" class="video-library" aria-label="出游视频放映室"></div>
   <button class="primary-button task-button" data-unlock="final">去下一站</button>
 </section>
 <section class="screen" data-screen="final">
   <div class="section-heading"><p class="mini-kicker">05 / THE LITTLE GIFT HOUSE</p><h2>杨宇，<em>十九岁快乐。</em></h2><p>到这里先别急着离开。还有三个小问题，和一份等着亲手交给你的礼物。</p></div>
   <div class="letter-card"><div class="letter-top"><span>A LETTER FOR POTATO</span><span>No. 019</span></div><span class="letter-age">19</span><h3>慢慢长大，<br>继续做快乐的土豆。</h3><p>十九岁，不用一夜之间学会所有事。<br>喜欢的就靠近，不喜欢的就先放一放。<br>愿你有自己的节奏，也有很多很多<br>可以嘻嘻哈哈的小日子。</p><div class="signature">今天的祝福，全部归杨宇。<span>HAPPY BIRTHDAY, POTATO.</span></div></div>
-  <button class="secondary-button" id="resetButton">再逛一次小岛 ↗</button>
+  <div class="gift-checklist" id="giftChecklist">
+    <p class="mini-kicker">GIFT CHECKLIST / 当面清点</p>
+    <h3>礼物清单，收到一件勾一件</h3>
+    <ul class="checklist-items">
+      <li><label><input type="checkbox" data-check="keychain"><span>定制钥匙扣</span></label></li>
+      <li><label><input type="checkbox" data-check="journal"><span>手账本（里面贴了照片）</span></label></li>
+      <li><label><input type="checkbox" data-check="thermos"><span>保温杯</span></label></li>
+      <li><label><input type="checkbox" data-check="candle"><span>香薰</span></label></li>
+      <li><label><input type="checkbox" data-check="doll"><span>可以捏捏的小玩偶</span></label></li>
+      <li><label><input type="checkbox" data-check="candy"><span>一罐大白兔奶糖</span></label></li>
+    </ul>
+    <p class="checklist-progress">已收到 <strong id="checklistCount">0 / 6</strong></p>
+    <p class="checklist-note">当天还会有一个小蛋糕。小零食以后再说。</p>
+  </div>
+  <div class="final-actions"><button class="primary-button" id="openSouvenir">看看通关纪念卡 →</button><button class="secondary-button" id="resetButton">再逛一次小岛 ↗</button></div>
 </section>
 <nav class="bottom-nav" aria-label="小岛主导航"><button data-go="home"><span>⌂</span><small>生日首页</small></button><button data-go="map"><span>✳</span><small>小岛地图 <em id="navCount">1/5</em></small></button><button data-go="final"><span>♡</span><small>礼物小屋</small></button></nav>
 </main>
 <dialog id="giftDialog" class="gift-dialog" aria-labelledby="giftTitle"><button class="gift-close" aria-label="暂时收起彩蛋">×</button><div class="gift-envelope" aria-hidden="true">🎁</div><p class="mini-kicker">A LITTLE SURPRISE FOR POTATO</p><h2 id="giftTitle"></h2><p id="giftHint"></p><button id="unwrapGift" class="primary-button">拆开这份彩蛋 <span>♡</span></button><div id="giftReveal" hidden><h3></h3><p></p><div class="handoff-note">先把手机放一放 · 等礼物到手，再出发</div><button id="claimGift" class="primary-button">礼物收到啦，继续逛岛 →</button></div></dialog>
-<script src="gifts-config.js"></script><script src="app.js"></script><script src="gifts.js"></script>
+<dialog id="souvenirDialog" class="souvenir-dialog" aria-labelledby="souvenirTitle"><button class="souvenir-close" aria-label="关闭纪念卡">×</button><canvas class="souvenir-heart" width="480" height="260" aria-hidden="true"></canvas><p class="mini-kicker">A KEEPSAKE FROM THE ISLAND</p><h2 id="souvenirTitle">通关纪念卡</h2><p class="souvenir-tip">长按下面的图片就能存进相册，<br>也可以点按钮直接下载。</p><img class="souvenir-image" alt="杨宇十九岁生日小岛通关纪念卡"><div class="souvenir-actions"><button id="souvenirDownload" class="primary-button">保存这张纪念卡</button><button id="souvenirClose" class="secondary-button">继续逛逛小岛</button></div></dialog>
+<script src="sounds.js"></script><script src="celebrate.js"></script><script src="gifts-config.js?v=gifts2"></script><script src="app.js?v=album3"></script><script src="gifts.js?v=souvenir4"></script><script src="media-config.js?v=album3"></script><script src="media.js?v=album3"></script><script type="module" src="crystal.js?v=island3"></script>
 </body></html>

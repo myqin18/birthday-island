@@ -2,3 +2,44 @@
 .guess-card{max-width:700px;margin:36px auto 24px;padding:30px;border:1px solid #d9d7c8;border-radius:2px;background:#edeedf;box-shadow:none}
 .guess-card h3{font-size:20px;font-weight:500;line-height:1.7;margin:14px 0}.guess-card .mini-kicker{color:#8b907a}.guess-counter{font-size:10px;color:#7c826f;line-height:1.8}.guess-options{display:grid;gap:10px}.guess-option{border:1px solid #dcd9c8;border-radius:1px;background:#faf8ef;padding:16px;color:#555b4a;text-align:left;font-size:13px;line-height:1.7;min-height:48px}.guess-option.wrong{border-style:dashed;background:#f8eee6}.guess-option.correct{background:#d7dfc7;border-color:#95a182}.guess-option:disabled{cursor:default;opacity:.8;transform:none}.guess-option.correct:disabled{opacity:1}.guess-feedback{font-size:12px;line-height:1.9;color:#73795f;min-height:24px;margin:15px 0}.guess-skip{border:0;background:none;color:#82755e;font-size:12px;min-height:44px;text-decoration:underline;text-underline-offset:4px;display:block;margin:12px auto 0}.guess-next,.gift-trigger{width:100%;box-shadow:none;font-size:12px;justify-content:center;text-align:center;line-height:1.7}.gift-map-status{font-size:10px;text-align:left;color:#858976;line-height:1.9}.gift-map-status strong{color:#af716a}.map-pin.gift-claimed b:after{content:' ♡';color:#b37770}
 .gift-dialog{width:min(90vw,420px);max-height:85svh;overflow-y:auto;border:1px solid #c8b995;border-radius:2px;padding:30px 25px;background:#f7f2e6;color:var(--ink);text-align:center;box-shadow:0 30px 100px #353b3440}.gift-dialog::backdrop{background:#434b3e85;backdrop-filter:blur(6px)}.gift-dialog h2{font-size:23px;font-weight:500;line-height:1.6;margin:14px 0}.gift-dialog p{font-size:13px;line-height:2;color:#7e7b68}.gift-dialog .mini-kicker{font-size:9px}.gift-dialog h3{color:#a66f60;font-size:20px;line-height:1.6}.gift-close{position:absolute;right:12px;top:10px;border:0;background:transparent;font-size:26px;min-width:44px;min-height:44px;color:#94896c}.gift-envelope{font-size:70px;margin:13px auto 20px}.gift-dialog.unwrapped .gift-envelope{animation:fade-in .5s ease}.handoff-note{margin:20px 0;padding:14px 9px;border:1px dashed #bcc3a7;border-radius:1px;background:#e8ead9;font-size:11px;line-height:1.7;color:#727859}.gift-dialog .primary-button{justify-content:center;font-size:12px;line-height:1.8;margin:18px 0 7px;box-shadow:none;width:100%;border-radius:1px}.gift-open{overflow:hidden}@media(max-width:480px){.guess-card{padding:23px 18px}.guess-card h3{font-size:18px}}@media(max-width:350px){.gift-dialog{padding:30px 18px}.gift-dialog h2{font-size:20px}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+/* 礼物小屋：当面清点清单 */
+.gift-checklist{max-width:700px;margin:30px auto 26px;padding:26px 28px;border:1px solid #d9d7c8;border-radius:2px;background:#edeedf}
+.gift-checklist .mini-kicker{color:#8b907a;margin:0 0 10px}
+.gift-checklist h3{font-size:20px;font-weight:500;margin:0 0 16px}
+.checklist-items{list-style:none;margin:0 0 14px;padding:0;display:grid;gap:8px}
+.checklist-items label{display:flex;align-items:center;gap:12px;padding:13px 15px;border:1px solid #dcd9c8;border-radius:1px;background:#faf8ef;font-size:13px;color:#555b4a;cursor:pointer;min-height:48px;line-height:1.6}
+.checklist-items input{width:17px;height:17px;accent-color:#839078;flex:none;cursor:pointer}
+.checklist-items label:has(input:checked){background:#e2e8d5;border-color:#a8b394;text-decoration:line-through;text-decoration-color:#9aa788;color:#7d8470}
+.checklist-progress{font-size:11px;color:#7c826f;margin:0 0 12px}
+.checklist-progress strong{color:#af716a}
+.checklist-note{font-size:11px;color:#8b907a;margin:0;padding-top:13px;border-top:1px dashed #d9d7c8}
+@media(max-width:480px){.gift-checklist{padding:22px 18px}.gift-checklist h3{font-size:18px}}
+/* sound toggle */
+.sound-toggle{border:1px solid var(--line);background:#fbfaf4;color:var(--olive);width:34px;height:34px;border-radius:50%;cursor:pointer;font-size:15px;line-height:1;margin-right:10px;transition:background-color .2s ease,color .2s ease}
+.sound-toggle[aria-pressed=true]{background:#839078;color:#f6f3eb;border-color:#839078}
+.sound-toggle:focus-visible{outline:2px solid #7d8a70;outline-offset:3px}
+/* gift confetti */
+.gift-envelope{position:relative}
+.gift-confetti{position:absolute;left:50%;top:50%;width:0;height:0;pointer-events:none}
+.gift-confetti i{position:absolute;left:0;top:0;width:8px;height:8px;background:#bd7f71;border-radius:1px;opacity:0;animation:confetti-pop .85s ease-out forwards}
+.gift-confetti i:nth-child(3n){background:#839078}
+.gift-confetti i:nth-child(3n+1){background:#e6d7bd}
+.gift-confetti i:nth-child(4n){width:6px;height:6px;border-radius:50%}
+@keyframes confetti-pop{0%{opacity:1;transform:translate(0,0) rotate(0)}100%{opacity:0;transform:translate(var(--dx),var(--dy)) rotate(var(--rot))}}
+/* souvenir card dialog */
+.souvenir-dialog{width:min(92vw,440px);max-height:90svh;overflow-y:auto;border:1px solid #c8b995;border-radius:2px;padding:28px 22px 22px;background:#f7f2e6;color:var(--ink);text-align:center;box-shadow:0 30px 100px #353b3440}
+.souvenir-dialog::backdrop{background:#434b3e85;backdrop-filter:blur(6px)}
+.souvenir-heart{display:block;width:100%;height:180px;border:1px solid #e6d7bd;background:#f7f2e6;margin:0 0 14px}
+.souvenir-dialog .mini-kicker{font-size:9px;color:#8b907a}
+.souvenir-dialog h2{font-size:23px;font-weight:500;margin:12px 0 8px}
+.souvenir-tip{font-size:12px;line-height:1.9;color:#7e7b68;margin:0 0 16px}
+.souvenir-image{display:block;width:100%;height:auto;border:1px solid #ddd9cc;background:#f6f3eb;user-select:none;-webkit-user-select:none}
+.souvenir-actions{display:grid;gap:10px;margin-top:18px}
+.souvenir-actions .primary-button{justify-content:center;text-align:center;line-height:1.8;box-shadow:none;border-radius:1px}
+.souvenir-actions .secondary-button{justify-content:center;text-align:center}
+.souvenir-close{position:absolute;right:12px;top:10px;border:0;background:transparent;font-size:26px;min-width:44px;min-height:44px;color:#94896c;cursor:pointer}
+/* final screen actions */
+.final-actions{display:grid;gap:12px;max-width:700px;margin:26px auto 0}
+.final-actions .primary-button{justify-content:center;text-align:center}
+.final-actions .secondary-button{justify-content:center;text-align:center}
+@media(prefers-reduced-motion:reduce){.gift-confetti i{animation:none;opacity:0}}

@@ -1,3 +1,19 @@
-﻿*.png
-verify-gifts.cjs
+# 本地开发与截图产物，不进仓库
+*.png
+verify-*.cjs
+capture-*.cjs
+diag-*.cjs
+node_modules/
+package.json
+package-lock.json
+对话导出-*.md
+
+# 打包与中间产物
 dist/
+*.zip
+*.tgz
+github-pages-with-media/
+github-pages-ready/
+media-preview/
+media-build-report.json
+.media-probe.json

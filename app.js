@@ -49,21 +49,50 @@ function show(name, updateUrl = true) {
   });
   if (updateUrl) { const url = new URL(location.href); url.searchParams.delete('entry'); url.hash = target; history.pushState(null, '', url); }
   updateMap(); window.scrollTo({ top: 0, behavior: 'instant' });
+  window.dispatchEvent(new CustomEvent('island:screenchange', { detail: { screen: target } }));
   if (firstVisit) celebrate();
 }
 document.querySelectorAll('[data-go]').forEach(button => button.addEventListener('click', event => { event.preventDefault(); show(button.dataset.go); }));
-document.querySelector('.quiet-link').addEventListener('click', event => { event.preventDefault(); document.querySelector('#welcome-quiz').scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' }); });
+document.querySelectorAll('[data-go][role="button"]').forEach(button => button.addEventListener('keydown', event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); show(button.dataset.go); } }));
+document.querySelector('#startJourney').addEventListener('click', () => {
+  const quiz = document.querySelector('[data-guess="home"]');
+  const heading = quiz?.querySelector('h3');
+  heading?.focus({ preventScroll: true });
+  document.querySelector('#welcome-quiz').scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth', block: 'start' });
+});
 nodes.forEach(node => node.addEventListener('click', () => show(node.dataset.node)));
 document.querySelectorAll('[data-unlock]').forEach(button => button.addEventListener('click', () => show(button.dataset.unlock)));
-const flowerMessages = ['出发日：人已出门，方向随缘。这里以后放你们的出游照片。', '好天气：阳光负责灿烂，你们负责笑场。这里以后放合照。', '小小绕路：导航重新规划，快乐不受影响。这里以后放路上的照片。'];
-document.querySelectorAll('.flower-button').forEach((button, index) => button.addEventListener('click', () => {
-  document.querySelector('.photo-note b').textContent = button.querySelector('span:last-child').textContent;
-  document.querySelector('.photo-note p').textContent = flowerMessages[index]; button.setAttribute('aria-pressed', 'true');
-}));
-document.querySelector('#playMock').addEventListener('click', () => toast('小电影还在等素材。放入真实视频后，就能在这里播放啦。'));
-document.querySelector('#audioMock').addEventListener('click', () => toast('这个漂流瓶还没装入录音，先替你保管好。'));
-document.querySelector('#soundToggle').addEventListener('click', () => toast('背景音乐还没选好，当前是安静逛岛模式。'));
 document.querySelector('#resetButton').addEventListener('click', () => { show('map'); toast('欢迎再逛一次，刚才留下的小脚印都还在。'); });
 function readRoute() { return location.hash.slice(1) || new URLSearchParams(location.search).get('entry') || 'home'; }
+// 生日倒计时：目标写在 #countdownStrip 的 data-target，生日当天与之后换成不同文案。
+function tickCountdown() {
+  const strip = document.querySelector('#countdownStrip');
+  if (!strip) return;
+  const target = new Date(strip.dataset.target);
+  const days = strip.querySelector('#countdownDays');
+  const clock = strip.querySelector('#countdownClock');
+  const label = strip.querySelector('.countdown-label');
+  const unit = strip.querySelector('.countdown-unit');
+  const now = new Date();
+  const sameDay = value => value.getFullYear() === now.getFullYear() && value.getMonth() === now.getMonth() && value.getDate() === now.getDate();
+  if (sameDay(target)) { label.textContent = '今天就是'; days.textContent = '生日'; unit.textContent = ''; clock.textContent = ''; strip.classList.add('is-today'); return; }
+  if (now > target) { label.textContent = '生日已经'; days.textContent = '过完啦'; unit.textContent = ''; clock.textContent = ''; strip.classList.add('is-past'); return; }
+  const left = target - now;
+  const totalDays = Math.floor(left / 86400000);
+  const totalHours = Math.floor(left / 3600000);
+  const minutes = String(Math.floor(left / 60000) % 60).padStart(2, '0');
+  if (totalDays === 0) {
+    // 不到一天：把小时提上来，避免显示成「0 天」
+    days.textContent = String(totalHours);
+    unit.textContent = '小时';
+    clock.textContent = `${minutes}:${String(Math.floor(left / 1000) % 60).padStart(2, '0')}`;
+  } else {
+    days.textContent = String(totalDays);
+    unit.textContent = '天';
+    clock.textContent = `${String(totalHours % 24).padStart(2, '0')}:${minutes}`;
+  }
+}
+tickCountdown();
+window.setInterval(tickCountdown, 1000);
 window.addEventListener('popstate', () => show(readRoute(), false));
 show(readRoute(), false);

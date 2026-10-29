@@ -1,77 +1,44 @@
-# 生日探险地图
+# 土豆的十九岁生日小岛
 
-这是一个无需构建工具的手机网页原型，入口文件是 `index.html`。
+纯静态生日网站，无需构建工具或数据库。入口是 `index.html`。
+
+## 真实照片与视频
+
+本版包含 13 张照片、10 段出游视频，均来自桌面 `111` 文件夹。原片没有修改。
+
+- `media/photos/`：长边最多 1600px 的大图、640px 的缩略图；去除 EXIF 数据。
+- `media/videos/`：H.264 + AAC、最多 1280px 长边、30fps 的 MP4，保留原声。
+- `media/posters/`：每段视频的封面。
+- `media-config.js`：显示顺序、标题、地址和时长；可以编辑 title 或调整数组顺序。
+- `media.js` / `media.css`：相册和放映室交互及样式。
+
+照片支持点击放大、上一张/下一张、键盘方向键和 Escape 关闭。视频点击片单后才加载；切换页面或浏览器进入后台时自动暂停。进度与原有猜题、彩蛋互不影响。
 
 ## 预览
 
-直接打开 `index.html` 即可预览。若需要手机局域网测试，可在此目录启动任意静态文件服务器。
+在本目录运行 `py -m http.server 4173 --bind 127.0.0.1`，访问 `http://127.0.0.1:4173/`。本地地址不能作为手机 NFC 公网入口。
 
-## NFC 链接
+## GitHub Pages 更新
 
-把同一个网站地址写入定制银行卡大小的 NFC 卡即可。可用查询参数直接进入章节：
+固定网址： https://myqin18.github.io/birthday-island/
 
-- `?entry=home`：通行证首页
-- `?entry=map`：路线地图
-- `?entry=travel`：出游照片档案
-- `?entry=training`：军训训练任务
-- `?entry=video`：视频和语音章节
-- `?entry=final`：钥匙扣终点页
+解压最新媒体更新包，把根目录文件和整个 `media` 文件夹拖进现有仓库根目录，提交后等待 Pages 部署。不要上传 ZIP 本身，也不要额外套一层文件夹。不要上传桌面 `111` 的原片。网页副本都小于 GitHub 浏览器上传的 25MB 单文件限制。
 
-例如：`https://你的域名.example/?entry=travel`
+更新后 GitHub 用户名、仓库名和入口路径保持不变，二维码及 NFC 均可沿用。公开仓库中的照片和视频可以被访问、下载；noindex 不是密码或访问控制。
 
-## 发布和 NFC
+## 章节入口
 
-当前文件是静态网站，本地的 `http://localhost:4173` 只能在开发电脑上打开，不能写入 NFC 给手机使用。
+- `?entry=home`：生日首页
+- `?entry=map`：小岛地图
+- `?entry=travel`：照片花园
+- `?entry=training`：土豆训练营
+- `?entry=video`：落日放映室
+- `?entry=final`：礼物小屋
 
-正式使用时，需要先把整个 `birthday-adventure` 文件夹发布到一个公开的 HTTPS 静态网址，再把这个网址写入 NFC。适合的方式有：
+## 彩蛋
 
-- GitHub Pages：适合长期免费托管静态文件
-- Netlify Drop：适合临时快速发布
-- Vercel：适合以后持续更新
-- 自己的域名 + 静态空间：最稳定、最像正式礼物
+`gifts-config.js` 中配置五站礼物和十五道题。`correct` 是从 0 开始的答案编号。`birthday-gifts-v1` 和 `birthday-island-visited-v2` 分别保存彩蛋及地图访问进度，本次更新保持键名不变。
 
-发布后，NFC 只需要保存一个普通的 NDEF URL 记录，例如：
+## 素材制作
 
-```text
-https://你的网址.example/?entry=home
-```
-
-这里的 `entry` 不是 NFC 的限制，而是网站自己用来选择打开章节的参数。可以为不同芯片写不同入口：
-
-```text
-?entry=home      通行证首页
-?entry=travel    照片花园
-?entry=training  土豆训练营
-?entry=video     落日放映室
-?entry=final     礼物小屋
-```
-
-建议同时在定制卡背面印一个二维码，二维码和 NFC 指向同一个 HTTPS 地址。写入前用两台手机测试：一台 Android 和一台 iPhone，确认 NFC 能弹出通知、浏览器能打开页面。不要把 `localhost`、`127.0.0.1` 或局域网地址写入芯片。
-
-
-每个地点结束后都有 3 道抽象猜题。答错可以重猜，也可以使用“寿星特权”跳过；答完后会打开礼物彩蛋弹窗。点击“拆开彩蛋”后，页面会显示交接提示，方便你暂停手机、把现实中的礼物拿出来，再由寿星点击“礼物收到啦”。
-
-五站的默认礼物安排写在 [gifts-config.js](gifts-config.js) 中，可直接修改：
-
-- `gift.title`：拆开前看到的标题
-- `gift.hint`：礼物线索
-- `gift.reveal`：拆开彩蛋后的标题
-- `gift.handoff`：你递礼物时看到的提示
-- `questions`：每站 3 道题；`correct` 是正确选项的编号，从 0 开始
-
-当前默认安排是玩偶、照片小卡、休息补给、下一次出游约定、浮雕合照钥匙扣。你可以把第二站改成照片包，把第三站的补给改成贴纸或零食，也可以把第四站只做成一张手写出游券，不需要额外购买大型礼物。
-
-进度保存在浏览器的 `localStorage` 中，键名是 `birthday-gifts-v1`。如果要重新体验所有彩蛋，可在浏览器控制台执行：
-
-```js
-localStorage.removeItem('birthday-gifts-v1'); location.reload();
-```
-
-
-- 真实照片：替换 `index.html` 里的照片占位卡，推荐改为 `<img>` 并在 `styles.css` 中保留卡片比例。
-- 视频：将 `video-placeholder` 替换成 `<video controls>`，不要自动播放。
-- 音频：将 `audioMock` 替换为 `<audio controls>`。
-- 妹妹称呼、生日日期和文案：集中修改 `index.html` 中的文字。
-- 卡片二维码：生成网站首页或对应 `?entry=` 地址的二维码，印在 NFC 卡背面。
-
-当前工程使用占位内容，没有包含真实个人照片、视频或音频。
+`prepare-media.py` 制作网页副本，依赖 Pillow、imageio-ffmpeg 和 ffprobe。`media-build-report.json` 只供本地核对原文件映射，不需要上传。发布包只包含网站运行所需内容。
