@@ -64,7 +64,8 @@ nodes.forEach(node => node.addEventListener('click', () => show(node.dataset.nod
 document.querySelectorAll('[data-unlock]').forEach(button => button.addEventListener('click', () => show(button.dataset.unlock)));
 document.querySelector('#resetButton').addEventListener('click', () => { show('map'); toast('欢迎再逛一次，刚才留下的小脚印都还在。'); });
 function readRoute() { return location.hash.slice(1) || new URLSearchParams(location.search).get('entry') || 'home'; }
-// 生日倒计时：目标写在 #countdownStrip 的 data-target，生日当天与之后换成不同文案。
+// 生日时钟：目标写在 #countdownStrip 的 data-target。
+// 生日之前倒数，当天显示「今天就是生日」，之后改成已经过去了多久 —— 时间一直走，每次打开都有东西看。
 function tickCountdown() {
   const strip = document.querySelector('#countdownStrip');
   if (!strip) return;
@@ -75,17 +76,23 @@ function tickCountdown() {
   const unit = strip.querySelector('.countdown-unit');
   const now = new Date();
   const sameDay = value => value.getFullYear() === now.getFullYear() && value.getMonth() === now.getMonth() && value.getDate() === now.getDate();
-  if (sameDay(target)) { label.textContent = '今天就是'; days.textContent = '生日'; unit.textContent = ''; clock.textContent = ''; strip.classList.add('is-today'); return; }
-  if (now > target) { label.textContent = '生日已经'; days.textContent = '过完啦'; unit.textContent = ''; clock.textContent = ''; strip.classList.add('is-past'); return; }
-  const left = target - now;
-  const totalDays = Math.floor(left / 86400000);
-  const totalHours = Math.floor(left / 3600000);
-  const minutes = String(Math.floor(left / 60000) % 60).padStart(2, '0');
+  if (sameDay(target)) {
+    label.textContent = '今天就是'; days.textContent = '生日'; unit.textContent = ''; clock.textContent = '';
+    strip.classList.remove('is-past'); strip.classList.add('is-today'); return;
+  }
+  const past = now > target;
+  const span = past ? now - target : target - now;
+  const totalDays = Math.floor(span / 86400000);
+  const totalHours = Math.floor(span / 3600000);
+  const minutes = String(Math.floor(span / 60000) % 60).padStart(2, '0');
+  label.textContent = past ? '生日已经过去' : '距离生日';
+  strip.classList.toggle('is-past', past);
+  strip.classList.remove('is-today');
   if (totalDays === 0) {
     // 不到一天：把小时提上来，避免显示成「0 天」
     days.textContent = String(totalHours);
     unit.textContent = '小时';
-    clock.textContent = `${minutes}:${String(Math.floor(left / 1000) % 60).padStart(2, '0')}`;
+    clock.textContent = `${minutes}:${String(Math.floor(span / 1000) % 60).padStart(2, '0')}`;
   } else {
     days.textContent = String(totalDays);
     unit.textContent = '天';
